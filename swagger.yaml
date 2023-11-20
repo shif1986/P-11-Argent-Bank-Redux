@@ -9,6 +9,54 @@ basePath: /api/v1
 schemes:
   - http
 paths:
+  /user/accounts:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: Accounts Details
+      description: API for fetching Accounts
+      responses:
+        '200':
+          description: Accounts retrieved successully
+          schema:
+            $ref: '#/definitions/BalanceResponse'
+        '400':
+          description: Invalid Fields
+        '500':
+          description: Internal Server Error
+  /user/transaction/{id}:
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: Update transaction
+      description: Update transaction
+      parameters:
+        - in: body
+          name: body
+          description: Body of the transaction
+          required: true
+          schema:
+            $ref: '#/definitions/UpdateTransaction'
+        - in: path
+          type: string
+          name: id
+          description: Update transaction details attributes
+          required: true
+      produces: 
+        - application/json
+      responses:
+        '200':
+          description: User balance retrieved successfully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '401':
+          description: Authorization information is missing or invalid
+        '500':
+          description: Internal Server Error
   /user/login:
     post:
       tags:
@@ -156,3 +204,43 @@ definitions:
     properties:
       userName:
         type: string
+  BalanceResponse:
+    properties:
+      name: 
+        type: string
+      transactions: 
+        type: object
+        properties:
+          description:
+            type: string
+          amount::
+            type: number
+          date:
+            type: string
+          transactiontype:
+            type: string
+          category:
+            type: string
+          note:
+            type: string
+  TransactionResponse:
+    properties:
+      description:
+        type: string
+      amount::
+        type: number
+      date:
+        type: string
+      transactiontype:
+        type: string
+      category:
+        type: string
+      note:
+        type: string
+  UpdateTransaction:
+    properties:
+      category:
+        type: string
+      note:
+        type: string
+    

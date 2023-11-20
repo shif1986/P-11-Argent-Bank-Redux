@@ -7,6 +7,8 @@ router.post('/signup', userController.createUser)
 
 router.post('/login', userController.loginUser)
 
+// post profile
+
 router.post(
   '/profile',
   tokenValidation.validateToken,
