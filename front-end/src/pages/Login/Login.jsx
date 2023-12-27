@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  // envoyer les info dans redux
   const dispatch = useDispatch();
   // redirection de page
   const navigate = useNavigate();
@@ -14,14 +15,18 @@ const Login = () => {
     
     e.preventDefault();
     console.log(email, password);
+    // call API, plus stockage de token 
     try {
       const response = await signIn(email, password );
       console.log("MY RESPONSE,",response);
       if (response.status === 200) {
         dispatch(setToken(response.body.token));
+
+        // on recupere l'utilisateur connecté
         const profile = await getUser(response.body.token);
         console.log(profile);
         const data = await profile.body;
+        // Stockage l'utilisateur connecté dans Redux
         dispatch(setUser(data));
         navigate("/user")
       }
@@ -34,6 +39,8 @@ const Login = () => {
     <section className="sign-in-content">
       <i className="fa fa-user-circle sign-in-icon"></i>
       <h1>Sign In</h1>
+
+      {/* Formulaire */}
       <form onSubmit={onSubmit}>
         <div className="input-wrapper">
           <label htmlFor="email">Email</label>
