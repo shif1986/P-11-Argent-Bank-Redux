@@ -1,9 +1,13 @@
+import iconChat from "../../assets/img/icon-chat.jpg";
+import iconMoney from "../../assets/img/icon-money.jpg";
+import iconSecurity from "../../assets/img/icon-security.jpg";
+
 const Features = () => {
     return (
         <section className="features">
             <h2 className="sr-only">Features</h2>
             <div className="feature-item">
-                <img src="../../assets/img/icon-chat.png" alt="Chat Icon" className="feature-icon"/>
+                <img src={iconChat} alt="Chat Icon" className="feature-icon"/>
                 <h3 className="feature-item-title">You are our #1 priority</h3>
                 <p>
                     Need to talk to a representative? You can get in touch through our
@@ -12,7 +16,7 @@ const Features = () => {
             </div>
             <div className="feature-item">
                 <img
-                    src="../../assets/img/icon-money.png"
+                    src={iconMoney}
                     alt="Chat Icon"
                     className="feature-icon"
                 />
@@ -23,7 +27,7 @@ const Features = () => {
             </div>
             <div className="feature-item">
                 <img
-                    src="../../assets/img/icon-security.png"
+                    src={iconSecurity}
                     alt="Chat Icon"
                     className="feature-icon"
                 />
