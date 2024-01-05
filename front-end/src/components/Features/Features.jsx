@@ -1,6 +1,6 @@
-import iconChat from "../../assets/img/icon-chat.jpg";
-import iconMoney from "../../assets/img/icon-money.jpg";
-import iconSecurity from "../../assets/img/icon-security.jpg";
+import iconChat from "../../assets/img/icon-chat.webp";
+import iconMoney from "../../assets/img/icon-money.webp";
+import iconSecurity from "../../assets/img/icon-security.webp";
 
 const Features = () => {
     return (

@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {setToken, setUser} from "../../redux/actions/userActions";
 import {useNavigate} from "react-router";
-import logo from "../../assets/img/argentBankLogo.jpg";
+import logo from "../../assets/img/argentbanklogo.webp";
 
 const Header = () => {
 
